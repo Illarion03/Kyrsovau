@@ -1,0 +1,47 @@
+﻿<Window x:Class="SaleOfHousesAndApartments.EditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SaleOfHousesAndApartments"
+        mc:Ignorable="d"
+        Title="Окно редактирования" Height="300" Width="800">
+    <Grid>
+        <StackPanel>
+            <Label Content="Тип"/>
+            <ComboBox
+                ItemsSource="{Binding productTypesss}"
+                SelectedItem="{Binding CurrentProduct.ProductType}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <Label Content="{Binding Title}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <Label Content="Название"/>
+            <TextBox 
+                Height="20"
+                Text="{Binding CurrentProduct.Title}"/>
+            <Label Content="Артикул"/>
+            <TextBox 
+                Height="20" 
+                Text="{Binding CurrentProduct.ArticleNumber}"/>
+            <Label Content="Цена"/>
+            <TextBox 
+                Height="20"
+                Text="{Binding CurrentProduct.MinCostForAgent}"/>
+            <Button
+                x:Name="SaveBtn" 
+                Content="Сохранить"
+                Click="SaveBtn_Click"
+                FontSize="20"
+                Background="turquoise"/>
+            <Button 
+                x:Name="BackBtn"
+                Content="Назад"
+                Click="BackBtn_Click"
+                FontSize="20"
+                Background="turquoise"/>
+        </StackPanel>
+    </Grid>
+</Window>
